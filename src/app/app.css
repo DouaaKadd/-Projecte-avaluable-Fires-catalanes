@@ -1,0 +1,74 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--surface);
+}
+
+.contingut {
+  flex: 1;
+  display: block;
+}
+
+.peu {
+  background: var(--surface-container-highest);
+  border-top: 1px solid var(--outline-variant);
+  margin-top: 2rem;
+}
+
+.peu-contenidor {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 2rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.peu-marca {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.peu-titol {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--on-surface);
+}
+
+.peu-copy {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+}
+
+.peu-enllacos {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.peu-enllacos a {
+  font-size: 0.75rem;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.peu-enllacos a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .peu-contenidor {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .peu-marca {
+    align-items: center;
+  }
+}

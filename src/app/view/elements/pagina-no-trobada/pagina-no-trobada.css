@@ -1,0 +1,36 @@
+.pagina-no-trobada {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.pagina-no-trobada h1 {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  letter-spacing: -0.04em;
+}
+
+.missatge {
+  margin-bottom: 1.5rem;
+  color: var(--on-surface-variant);
+  font-size: 1.05rem;
+}
+
+.enllac-tornar {
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-lg);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.enllac-tornar:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}

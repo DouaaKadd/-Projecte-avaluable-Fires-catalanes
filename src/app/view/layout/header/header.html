@@ -1,0 +1,20 @@
+<header class="capcalera">
+  <div class="contenidor">
+    <a [routerLink]="['/comarques']" class="marca">
+      <span class="titol">Fires de Catalunya</span>
+    </a>
+
+    <nav class="navegacio">
+      <a [routerLink]="['/comarques']" routerLinkActive="actiu" class="enllac">Comarques</a>
+      <a [routerLink]="['/preferides']" routerLinkActive="actiu" class="enllac">Preferides</a>
+    </nav>
+
+    <a [routerLink]="['/preferides']" class="boto-preferits" [class.te-preferides]="total() > 0">
+      <span class="material-symbols-outlined" [class.fill]="total() > 0">favorite</span>
+      <span>Preferits</span>
+      @if (total() > 0) {
+        <span class="comptador">{{ total() }}</span>
+      }
+    </a>
+  </div>
+</header>

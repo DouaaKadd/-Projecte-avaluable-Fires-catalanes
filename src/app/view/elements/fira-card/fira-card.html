@@ -1,0 +1,47 @@
+<article class="targeta-fira">
+  <div class="grafic">
+    <img
+      class="imatge"
+      [src]="urlImatge()"
+      [alt]="'Imatge il·lustrativa de ' + fira().municipalityName"
+      loading="lazy"
+    />
+    <span class="material-symbols-outlined icona-sector">{{ icona() }}</span>
+
+    <button
+      type="button"
+      class="cor"
+      [class.activa]="esPreferida()"
+      (click)="onAlternarPreferida($event)"
+      [attr.aria-label]="textBotoCor()"
+      [attr.title]="textBotoCor()"
+    >
+      <span class="material-symbols-outlined" [class.fill]="esPreferida()">favorite</span>
+    </button>
+  </div>
+
+  <div class="cos">
+    <p class="sector">{{ fira().sectorName }}</p>
+    <h3 class="nom">{{ fira().activityName }}</h3>
+
+    <p class="info-mini">
+      <span class="material-symbols-outlined icona-mini">location_on</span>
+      <span>{{ fira().municipalityName }}</span>
+    </p>
+    <p class="info-mini">
+      <span class="material-symbols-outlined icona-mini">calendar_month</span>
+      <span>{{ fira().date }}</span>
+    </p>
+
+    @if (fira().products) {
+      <p class="productes">{{ fira().products }}</p>
+    }
+
+    @if (fira().web) {
+      <a class="enllac-web" [href]="urlWeb()" target="_blank" rel="noopener noreferrer">
+        <span>Visitar web</span>
+        <span class="material-symbols-outlined icona-mini">open_in_new</span>
+      </a>
+    }
+  </div>
+</article>

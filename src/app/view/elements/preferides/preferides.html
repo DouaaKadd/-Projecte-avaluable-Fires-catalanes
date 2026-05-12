@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="hero-fons">
+    <img src="img/favoritos.jpg" alt="Les meves fires preferides" />
+    <div class="hero-degradat"></div>
+  </div>
+  <div class="hero-contingut">
+    <a [routerLink]="['/comarques']" class="enrere">
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span>Totes les comarques</span>
+    </a>
+
+    <h1>
+      <span class="material-symbols-outlined fill icona-titol">favorite</span>
+      Les meves fires preferides
+    </h1>
+    <p class="comptador">{{ textComptador() }}</p>
+  </div>
+</section>
+
+<section class="contingut">
+  <div class="contenidor">
+    @if (firesPreferides().length > 0) {
+      <div class="graella">
+        @for (fira of firesPreferides(); track fira.activityId) {
+          <app-fira-card [fira]="fira"></app-fira-card>
+        }
+      </div>
+    } @else {
+      <div class="buit">
+        <span class="material-symbols-outlined icona-buit">favorite_border</span>
+        <p class="missatge-principal">Encara no tens cap fira preferida</p>
+        <p class="missatge-ajuda">
+          Navega per les comarques i clica el cor de qualsevol fira per afegir-la aquí.
+        </p>
+        <a [routerLink]="['/comarques']" class="enllac-explorar">
+          <span>Explorar fires</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    }
+  </div>
+</section>

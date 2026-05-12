@@ -1,0 +1,51 @@
+<section class="capcalera-detall">
+  <div class="contenidor">
+    <a [routerLink]="['/comarques']" class="enrere">
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span>Totes les comarques</span>
+    </a>
+
+    <h1>Fires de {{ nomComarca() }}</h1>
+    <p class="comptador">{{ textComptador() }}</p>
+  </div>
+</section>
+
+<section class="contingut-detall">
+  <div class="contenidor">
+    @if (fires().length > 0) {
+      <div class="carrusel">
+        <button
+          type="button"
+          class="control"
+          (click)="onAnterior()"
+          [disabled]="!potAnarEnrere()"
+          aria-label="Fira anterior"
+        >
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+
+        <div class="visor">
+          <div class="pista" [style.--index]="indexActual()">
+            @for (fira of fires(); track fira.activityId) {
+              <div class="cel-la">
+                <app-fira-card [fira]="fira"></app-fira-card>
+              </div>
+            }
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="control"
+          (click)="onSeguent()"
+          [disabled]="!potAnarEndavant()"
+          aria-label="Fira següent"
+        >
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    } @else {
+      <p class="buit">No he trobat cap fira en aquesta comarca.</p>
+    }
+  </div>
+</section>

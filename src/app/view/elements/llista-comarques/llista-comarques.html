@@ -1,0 +1,59 @@
+<section class="hero">
+  <div class="hero-fons">
+    <img src="img/castellers.jpg" alt="Castellers de Catalunya" />
+    <div class="hero-degradat"></div>
+  </div>
+  <div class="hero-contingut">
+    <h1>Explora les Fires per Comarques</h1>
+    <p>
+      Descobreix la riquesa cultural, tradicional i comercial de Catalunya a través de les fires
+      que defineixen cada racó del nostre territori. Un viatge per les tradicions vives.
+    </p>
+    <button type="button" class="boto-cta" (click)="onComencarExploracio()">
+      Començar exploració
+    </button>
+  </div>
+</section>
+
+<section class="directori" id="directori-grid">
+  <header class="directori-capcalera">
+    <h2>Directori Territorial</h2>
+    <p class="subtitol">
+      Tria una comarca per descobrir totes les fires que s'hi celebren.
+    </p>
+  </header>
+
+  <ul class="graella">
+    @for (comarca of comarquesVisibles(); track comarca.nom) {
+      <li>
+        <a class="targeta-comarca" [routerLink]="['/comarques', comarca.nom]">
+          <div class="imatge-wrap">
+            <img
+              class="imatge"
+              [src]="urlsImatges()[comarca.nom]"
+              [alt]="'Paisatge de ' + comarca.nom"
+              loading="lazy"
+            />
+            <span class="badge-quantitat">{{ comarca.quantitat }} fires</span>
+          </div>
+          <div class="cos">
+            <h3 class="nom">{{ comarca.nom }}</h3>
+            <span class="enllac">
+              <span>Veure fires</span>
+              <span class="material-symbols-outlined fletxa">arrow_forward</span>
+            </span>
+          </div>
+        </a>
+      </li>
+    }
+  </ul>
+
+  @if (hiHaMes()) {
+    <div class="carregar-mes">
+      <button type="button" class="boto-secundari" (click)="onCarregarMes()">
+        <span>Carregar més comarques</span>
+        <span class="material-symbols-outlined">expand_more</span>
+      </button>
+    </div>
+  }
+</section>
